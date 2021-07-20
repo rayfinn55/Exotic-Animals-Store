@@ -1,36 +1,23 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const animalsController = require('./controllers/animalsController')
 
 // CONFIGURATION
 const app = express();
+console.log(animalsController)
 
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
-app.get("/", (req, res) => {
-  res.send("Hello, world!");
+app.get('/', (req, res) => {
+  res.send("Welcome to Exotic Animals!");
 });
 
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
-const db = require("./db/dbConfig.js");
+app.use('/animals', animalsController);
 
-app.get("/test", async (req, res) => {
-  try {
-    const allDays = await db.any("SELECT * FROM animal_catalog");
-    res.json(allDays);
-  } catch (err) {
-    res.json(err);
-  }
-});
-
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
 
 // EXPORT
 module.exports = app;

@@ -5,7 +5,7 @@ CREATE DATABASE animal_shop;
 
 CREATE TABLE animal_catalog (
     id SERIAL PRIMARY KEY, 
-    animal_name Text,
+    animal_name TEXT,
     class TEXT,
     location TEXT,
     description TEXT,
