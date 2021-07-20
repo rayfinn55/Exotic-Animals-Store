@@ -21,7 +21,7 @@ const db = require("./db/dbConfig.js");
 
 app.get("/test", async (req, res) => {
   try {
-    const allDays = await db.any("SELECT * FROM animalCatalog");
+    const allDays = await db.any("SELECT * FROM animal_catalog");
     res.json(allDays);
   } catch (err) {
     res.json(err);
