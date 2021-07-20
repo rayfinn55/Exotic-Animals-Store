@@ -3,7 +3,7 @@ CREATE DATABASE animal_shop;
 
 \c animal_shop
 
-CREATE TABLE animalCatalog (
+CREATE TABLE animal_catalog (
     id SERIAL PRIMARY KEY, 
     animal_name Text,
     class TEXT,
