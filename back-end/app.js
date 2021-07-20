@@ -17,11 +17,6 @@ app.get('/', (req, res) => {
 
 app.use('/animals', animalsController);
 
-// 404 PAGE
-app.get('*', (req, res) => {
-  res.status(404).send('Page not found!')
-});
-
 
 // EXPORT
 module.exports = app;
