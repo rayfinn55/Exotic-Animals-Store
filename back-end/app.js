@@ -1,11 +1,10 @@
 // DEPENDENCIES
-const cors = require("cors");
 const express = require("express");
+const cors = require("cors");
 const animalsController = require('./controllers/animalsController')
 
 // CONFIGURATION
 const app = express();
-console.log(animalsController)
 
 // MIDDLEWARE
 app.use(cors());
