@@ -1,28 +1,15 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+import React from 'react'
+import { Route } from 'react-router-dom'
+import Home from './Pages/Home'
+import FourOFour from './Pages/FourOFour'
 
-function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
-  return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
+
+export default function App() {
+
+    return (
+        <div>
+            <Route exact path='/' component={Home} />
+            <Route path='*' component={FourOFour} />
+        </div>
+    )
 }
-
-export default App;
