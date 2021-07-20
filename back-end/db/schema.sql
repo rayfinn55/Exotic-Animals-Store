@@ -1,6 +1,14 @@
-DROP TABLE IF EXISTS test;
+DROP DATABASE IF EXISTS animal_shop;
+CREATE DATABASE animal_shop;
 
-CREATE TABLE test (
+\c animal_shop
+
+CREATE TABLE animalCatalog (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    animal_name Text,
+    species TEXT,
+    location TEXT,
+    description TEXT,
+    price INT,
+    stock BOOLEAN
 );
