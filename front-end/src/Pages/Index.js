@@ -1,5 +1,5 @@
 import React from 'react'
-import ListItems from '../Components/ListItems'
+import ListAnimals from '../Components/ListAnimals'
 
 
 export default function Index() {
@@ -7,7 +7,7 @@ export default function Index() {
     return (
         <div>
             <h1>Index Page</h1>
-            <ListItems />
+            <ListAnimals />
         </div>
     )
 }

@@ -1,11 +1,11 @@
-\c animal_shop
+\c animal_shop;
 
 INSERT INTO animal_catalog 
 (animal_name, class, location, description, price, stock) 
 VALUES
 ('Sugar Glider','Mammal', 'Southeastern Australia', 'The sugar glider is a small, omnivorous, arboreal, and nocturnal gliding possum belonging to the marsupial infraclass.', '750', 'true'),
 ('Fennec Fox', 'Mammal', 'Africa & Western Asia', 'The fennec fox is a small crepuscular fox native to the Sahara Desert, the Sinai Peninsula in Egypt, and the Arava and Negev deserts in Israel. Its most distinctive feature is its unusually large ears.', '4500', 'true' ),
-('Red Hand Tamarin', 'Mamal', 'Guyana & South America', 'The red-handed tamarin, also known as the golden-handed tamarin or Midas tamarin, is a New World monkey belonging to the family Callitrichidae.', '4500', 'false'),
+('Red Hand Tamarin', 'Mammal', 'Guyana & South America', 'The red-handed tamarin, also known as the golden-handed tamarin or Midas tamarin, is a New World monkey belonging to the family Callitrichidae.', '4500', 'false'),
 ('Albino Suriname Red Tailed Boa ', 'Reptile', 'Suriname (South America)', 'A sought-after reptile among snake lovers, the Suriname red tail boa is both rare and beautiful. This snake is technically not a separate species (just like the Colombian red tail). It’s part of the boa constrictor family','15000', 'true' ),
 ('Chinchilla', 'Mammal', 'Andes Mountain', 'Chinchillas are either of two species (Chinchilla chinchilla and Chinchilla lanigera) of crepuscular rodents of the parvorder Caviomorpha.', '650', 'false'),
 ('Bengal Cats', 'Mammaml','United States', 'The Bengal cat is a domesticated cat breed created from hybrids of domestic cats, especially the spotted Egyptian Mau, with the Asian leopard cat (Prionailurus bengalensis).', '5200', 'true'),
