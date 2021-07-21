@@ -10,5 +10,6 @@ CREATE TABLE animal_catalog (
     location TEXT,
     description TEXT,
     price INT,
-    stock BOOLEAN
+    stock BOOLEAN,
+    img TEXT
 );
