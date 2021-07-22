@@ -9,18 +9,22 @@ export default function AnimalDetails() {
     const [animal, setAnimal] = useState({})
     const API = apiURL()
     const { id } = useParams()
-    console.log(useParams())
-    console.log(useHistory())
+    const history = useHistory()
+
 
     useEffect(() => {
-        axios.get(`${API}/animals`)//${id}
-        .then(response => setAnimal(response.data[6]))
+        axios.get(`${API}/animals/${id}`)
+        .then(response => setAnimal(response.data))
     }, [API])
     console.log(animal)
     
-    const handleDelete = async (e) => {
-        await axios.delete(`${API}`)//${id}
-        // history.push('/pets')
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`${API}/animals/${id}`)
+            history.push('/pets')
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     return (
