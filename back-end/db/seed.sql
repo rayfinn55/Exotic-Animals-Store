@@ -1,4 +1,4 @@
-\c animal_shop
+\c animal_shop;
 
 INSERT INTO animal_catalog 
 (animal_name, class, location, description, price, stock, img) 

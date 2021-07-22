@@ -1,5 +1,5 @@
 // DEPENDENCIES
-const db = require('../db/dbConfig');
+const db = require('../db/dbConfig.js');
 
 const getAllAnimals = async () => {
   try {
