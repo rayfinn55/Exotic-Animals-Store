@@ -23,7 +23,7 @@ const getAnimal = async (id) => {
 // CREATE
 const createNewAnimal = async (animal) => {
   try {
-    const newAnimal = await db.one('INSERT INTO animal_catalog (animal_name, class, location, description, price, stock) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', 
+    const newAnimal = await db.one('INSERT INTO animal_catalog (animal_name, class, location, description, price, stock) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', 
     [animal.animal_name, animal.class, animal.location, animal.description, animal.price, animal.stock, animal.img]);
       return newAnimal
   } catch (e) {
@@ -31,31 +31,32 @@ const createNewAnimal = async (animal) => {
   }
 }
 
-//UPDATE
-const updateAnimal = async (id, animal) => {
+//DELETE
+const deleteAnimal = async(id) => {
   try {
-    return await db.one(
-      "UPDATE animal_catalog SET animal_name = $1, class =$2, location = $3, description = $4, price = $5, stock = $6, img = $7 RETURNING *",
-    [animal.animal_name, animal.class, animal.location, animal.description, animal.price, animal.stock, animal.img, id]
-    );
+    return await db.one('DELETE FROM animal_catalog WHERE id=$1 RETURNING *', id);
   } catch (e) {
     return e
   }
 };
 
-//DELETE
-const deleteAnimal = async(id) => {
+//UPDATE
+const updateAnimal = async (id, animal) => {
   try {
-    return await db.one('DELETE FROM animal_catalog WHERE id=$1 RETURNING *;', id);
+    const updatedAnimal = await db.one(
+      'UPDATE animal_catalog SET animal_name=$1, class=$2, location=$3, description=$4, price=$5, stock=$6, img=$7 WHERE id=$8 RETURNING *',
+    [animal.animal_name, animal.class, animal.location, animal.description, animal.price, animal.stock, animal.img, id]);
+    return updatedAnimal
   } catch (e) {
-    return e;
+    return e
   }
 };
+
 
 module.exports = {
   getAllAnimals,
   getAnimal,
   createNewAnimal,
-  updateAnimal,
-  deleteAnimal
+  deleteAnimal,
+  updateAnimal
 };
