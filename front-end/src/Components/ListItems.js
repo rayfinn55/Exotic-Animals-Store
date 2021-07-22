@@ -5,7 +5,6 @@ import { apiURL } from '../util/apiURL'
 import Item from './Item'
 import Search from './Search'
 
-
 export default function ListItems() {
 
     const [pets, setPets] = useState([])
