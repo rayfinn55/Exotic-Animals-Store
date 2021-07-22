@@ -1,0 +1,9 @@
+.App {
+}
+
+.NavBar {
+    background-color: rgb(190, 140, 190);
+}
+.NavBar a {
+    text-decoration: none;
+}
