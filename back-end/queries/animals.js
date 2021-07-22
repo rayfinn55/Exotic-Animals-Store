@@ -31,8 +31,31 @@ const createNewAnimal = async (animal) => {
   }
 }
 
+//UPDATE
+const updateAnimal = async (id, animal) => {
+  try {
+    return await db.one(
+      "UPDATE animal_catalog SET animal_name = $1, class =$2, location = $3, description = $4, price = $5, stock = $6 RETURNING *;",
+    [animal.animal_name, animal.class, animal.location, animal.description, animal.price, animal.stock, id]
+    );
+  } catch (e) {
+    return e
+  }
+};
+
+//DELETE
+const deleteAnimal = async(id) => {
+  try {
+    return await db.one('DELETE FROM animal_catalog WHERE id=$1 RETURNING *;', id);
+  } catch (e) {
+    return e;
+  }
+};
+
 module.exports = {
   getAllAnimals,
   getAnimal,
   createNewAnimal,
-}
+  updateAnimal,
+  deleteAnimal
+};

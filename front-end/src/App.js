@@ -6,11 +6,13 @@ import Index from './Pages/Index'
 import NavBar from './Components/NavBar'
 import New from './Pages/New'
 import Show from './Pages/Show'
+import Edit from './Pages/Edit'
 
 import './App.css'
 
 
 export default function App() {
+    
 
     return (
         <div className='App'>
@@ -18,8 +20,9 @@ export default function App() {
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/pets' component={Index} />
+                <Route path='/pets/edit' component={Edit} />
+                <Route exact path='/pets/new' component={New} />
                 <Route path='/pets/:id' component={Show} />
-                <Route path='/pets/new' component={New} />
                 <Route exact path='*' component={FourOFour} />
             </Switch>
         </div>

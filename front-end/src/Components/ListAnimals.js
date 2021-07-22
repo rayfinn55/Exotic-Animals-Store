@@ -3,7 +3,7 @@ import axios from 'axios'
 import { apiURL } from '../util/apiURL'
 
 import Animal from './Animal'
-import Search from './Search'
+// import Search from './Search'
 
 
 export default function ListAnimals() {
@@ -14,7 +14,7 @@ export default function ListAnimals() {
     const API = apiURL()
 
     useEffect(() => {
-        axios.get(`${API}`)
+        axios.get(`${API}/animals`)
         .then(
             (response) => {
                 setPets(response.data)
@@ -35,7 +35,7 @@ export default function ListAnimals() {
     
     const petList = pets.map((pet, i) => {
         if (i < amount) {
-            return <Animal key={pet.name} id={i} pet={pet} />
+            return <Animal key={pet.id} pet={pet} />
         }
         else {
             return null
@@ -45,12 +45,12 @@ export default function ListAnimals() {
     return (
         <div>
             <h2>List of all Items</h2>
-            <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} />
-            { submit ?
-                <ul> {/* This is returning the individual <Item/> component */}
+            {/* <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
+            {/* { submit ? */}
+                <ul>
                     {pets[0] ? petList : null}
-                </ul> :
-            null }
+                </ul> 
+            {/* null } */}
         </div>
     )
 }
