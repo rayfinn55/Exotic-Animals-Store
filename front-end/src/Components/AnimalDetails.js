@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 
 
 export default function AnimalDetails() {
 
     const [animal, setAnimal] = useState({})
     const API = apiURL()
-    // const { id } = useParams()
+    const { id } = useParams()
+    console.log(useParams())
+    console.log(useHistory())
 
     useEffect(() => {
         axios.get(`${API}/animals`)//${id}
