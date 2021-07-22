@@ -8,6 +8,7 @@ export default function Home() {
         <div>
             <h1>Welcome to the Exotic Animals Shop</h1>
             <h2>We are here for all of your exotic animals needs</h2>
+            <h3>This can be your new BFF on YOUR couch!</h3>
             <img src={Giraffe} alt="Adorable Giraffe" />
         </div>
     )

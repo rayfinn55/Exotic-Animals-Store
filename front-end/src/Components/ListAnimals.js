@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL'
 
-import Item from './Item'
-import Search from './Search'
+import Animal from './Animal'
+// import Search from './Search'
 
 
-export default function ListItems() {
+export default function ListAnimals() {
 
     const [pets, setPets] = useState([])
     const [amount, setAmount] = useState(10)
@@ -14,7 +14,7 @@ export default function ListItems() {
     const API = apiURL()
 
     useEffect(() => {
-        axios.get(`${API}`)
+        axios.get(`${API}/animals`)
         .then(
             (response) => {
                 setPets(response.data)
@@ -30,24 +30,27 @@ export default function ListItems() {
     const handleSubmit = (e) => {
         e.preventDefault()
         setSubmit(true)
+        e.target.value = 0
     }
     
     const petList = pets.map((pet, i) => {
         if (i < amount) {
-            return <Item key={pet.name} pet={pet} />
+            return <Animal key={pet.id} pet={pet} />
+        }
+        else {
+            return null
         }
     })
 
     return (
         <div>
             <h2>List of all Items</h2>
-            <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} />
-            { submit ?
-            <ul> {/* This is returning the individual <Item/> component */}
-                {pets[0] ? petList : null}
-            </ul> :
-            null
-            }
+            {/* <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
+            {/* { submit ? */}
+                <ul>
+                    {pets[0] ? petList : null}
+                </ul> 
+            {/* null } */}
         </div>
     )
 }

@@ -73,4 +73,5 @@ animals.delete('/:id', async (req, res, next) => {
 
 animals.use(errorHandler);
 
+
 module.exports = animals
