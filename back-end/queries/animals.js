@@ -23,7 +23,7 @@ const getAnimal = async (id) => {
 // CREATE
 const createNewAnimal = async (animal) => {
   try {
-    const newAnimal = await db.one('INSERT INTO animal_catalog (animal_name, class, location, description, price, stock) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', 
+    const newAnimal = await db.one('INSERT INTO animal_catalog (animal_name, class, location, description, price, stock, img) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', 
     [animal.animal_name, animal.class, animal.location, animal.description, animal.price, animal.stock, animal.img]);
       return newAnimal
   } catch (e) {

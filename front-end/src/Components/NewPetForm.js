@@ -18,8 +18,8 @@ export default function NewPetForm() {
     const API = apiURL()
     const history = useHistory()
     
-    const addAnimal = async (newAnimal) => {
-        await axios.post(`${API}/animals`, newAnimal)
+    const addAnimal = (newAnimal) => {
+        axios.post(`${API}/animals`, newAnimal)
         .then(
             () => {
                 history.push('/pets')
