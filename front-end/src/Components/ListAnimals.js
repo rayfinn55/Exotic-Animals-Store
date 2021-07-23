@@ -9,8 +9,8 @@ import Animal from './Animal'
 export default function ListAnimals() {
 
     const [pets, setPets] = useState([])
-    const [amount, setAmount] = useState(10)
-    const [submit, setSubmit] = useState(false)
+    // const [amount, setAmount] = useState(10)  // Uncomment to use search bar (or maybe pagination?)
+    // const [submit, setSubmit] = useState(false)
     const API = apiURL()
 
     useEffect(() => {
@@ -23,23 +23,23 @@ export default function ListAnimals() {
         ).catch((c) => console.warn(c))
     }, [API])
 
-    const handleChange = (e) => {
-        const {value} = e.target
-        setAmount(value)
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setSubmit(true)
-        e.target.value = 0
-    }
+    // const handleChange = (e) => {
+    //     const {value} = e.target
+    //     setAmount(value)
+    // }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     setSubmit(true)
+    //     e.target.value = 0
+    // }
     
     const petList = pets.map((pet, i) => {
-        if (i < amount) {
+        // if (i < amount) {  // uncomment to use searchbar
             return <Animal key={pet.id} pet={pet} />
-        }
-        else {
-            return null
-        }
+        // }
+        // else {
+        //     return null
+        // }
     })
 
     return (

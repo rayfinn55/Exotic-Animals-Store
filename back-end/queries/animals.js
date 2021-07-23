@@ -41,7 +41,7 @@ const deleteAnimal = async(id) => {
 };
 
 //UPDATE
-const updateAnimal = async (id, animal) => {
+const updateAnimal = async (animal, id) => {
   try {
     const updatedAnimal = await db.one(
       'UPDATE animal_catalog SET animal_name=$1, class=$2, location=$3, description=$4, price=$5, stock=$6, img=$7 WHERE id=$8 RETURNING *',
