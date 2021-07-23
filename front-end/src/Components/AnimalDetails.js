@@ -15,13 +15,12 @@ export default function AnimalDetails() {
     useEffect(() => {
         axios.get(`${API}/animals/${id}`)
         .then(response => setAnimal(response.data))
-    }, [API])
-    console.log(animal)
+    }, [API, id])
     
     const handleDelete = async () => {
         try {
             await axios.delete(`${API}/animals/${id}`)
-            history.push('/pets')
+            .then(() => history.push(`/pets`))
         } catch (e) {
             console.error(e)
         }
@@ -36,7 +35,7 @@ export default function AnimalDetails() {
             <h4>Species located in {animal.location}</h4>
             <h4>Cost: {animal.price}</h4>
             {animal.stock ? <h4>In stock</h4> : <h4>Out of stock</h4>}
-            <Link to='/pets/edit'><button>Edit</button></Link>
+            <Link to={`/pets/edit/${id}`}><button>Edit</button></Link>
             <button onClick={handleDelete}>Delete</button>
         </div>
     )

@@ -1,7 +1,7 @@
 const express = require('express');
 const animals = express.Router();
 const { getAllAnimals, getAnimal, createNewAnimal, updateAnimal, deleteAnimal } = require('../queries/animals');
-const { errorHandler, NewErrorMessage } = require('../helper.js');
+const { errorHandler, NewErrorMessage } = require('../queries/helper.js');
 log = console.log
 
 
@@ -40,12 +40,11 @@ animals.post('/', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 //UPDATE
 animals.put('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const animal = await updateAnimal(id, req.body);
+    const animal = await updateAnimal(req.body, id);
     if (animal['id']) {
       res.json(animal)
     } else {
@@ -56,8 +55,6 @@ animals.put('/:id', async (req, res, next) => {
     return next (e);
   }
 });
-=======
->>>>>>> d6eac5a0e5af629d9ff942cb9793d219528f5a7e
 
 //DELETE
 animals.delete('/:id', async (req, res) => {

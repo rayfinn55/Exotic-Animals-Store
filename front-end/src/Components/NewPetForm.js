@@ -10,19 +10,22 @@ export default function NewPetForm() {
         animal_name: "",
         class: "",
         description: "",
-        img: "",
         location: "",
-        price: ""
+        price: "",
+        stock: true,
+        img: ""
     })
     const API = apiURL()
     const history = useHistory()
     
-    const addAnimal = async (newAnimal) => {
-        await axios.post(`${API}/animals`, newAnimal)
+    const addAnimal = (newAnimal) => {
+        axios.post(`${API}/animals`, newAnimal)
         .then(
-            (response) => {console.log(response)},
+            () => {
+                history.push('/pets')
+            },
             (error) => {
-                console.log('Error in NewPetForm')
+                console.log(error)
             }
         )
         .catch((c) => console.warn("catch", c))
@@ -34,7 +37,6 @@ export default function NewPetForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         addAnimal(animal)
-        // history.push('/pets')
     }
 
 
@@ -46,14 +48,16 @@ export default function NewPetForm() {
                 <input onChange={handleChange} type="text" id="animal_name" />
                 <label htmlFor="class">Class of Species: </label>
                 <input onChange={handleChange} type="text" id="class" />
-                <label htmlFor="description">Description</label>
-                <input onChange={handleChange} type="text" id="description" />
+                <label htmlFor="description">Description: </label>
+                <textarea onChange={handleChange} type="text" id="description" placeholder="Description of new pet"/>
                 <label htmlFor="img">Image url:</label>
                 <input onChange={handleChange} type="text" id="img" />
                 <label htmlFor="location">Location: </label>
                 <input onChange={handleChange} type="text" id="location" />
                 <label htmlFor="price">Cost: </label>
                 <input onChange={handleChange} type="number" id="price" />
+                <label htmlFor="img">URL for Image:</label>
+                <input onChange={handleChange} type="text" id="img" />
 
                 <input type="submit" value="Add a new BFF to the list!" />
             </form>
