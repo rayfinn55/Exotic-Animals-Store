@@ -4,6 +4,7 @@ const { getAllAnimals, getAnimal, createNewAnimal, updateAnimal, deleteAnimal } 
 const { errorHandler, NewErrorMessage } = require("../helper.js");
 log = console.log
 
+
 // INDEX
 animals.get('/', async (req, res) => {
   const allAnimals = await getAllAnimals();
@@ -32,7 +33,7 @@ animals.post('/', async (req, res) => {
     if (animal['id']) {
       res.json(animal);
     } else {
-      log(`Database: ${animal}`)
+      console.log(`Database: ${animal}`)
     }
   } catch (e) {
     res.status(404).json({ error: e})
@@ -44,7 +45,7 @@ animals.put('/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
     const animal = await updateAnimal(id, req.body);
-    if(animal['id']) {
+    if (animal['id']) {
       res.json(animal)
     } else {
       const msg = `animal not added to database: ${JSON.stringify(req.body)}`;
