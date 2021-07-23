@@ -1,8 +1,9 @@
 const express = require('express');
 const animals = express.Router();
 const { getAllAnimals, getAnimal, createNewAnimal, updateAnimal, deleteAnimal } = require('../queries/animals');
-const { errorHandler, NewErrorMessage } = require('../helper.js');
+const { errorHandler, NewErrorMessage } = require('../queries/helper.js');
 log = console.log
+
 
 // INDEX
 animals.get('/', async (req, res) => {
@@ -32,13 +33,28 @@ animals.post('/', async (req, res) => {
     if (animal['id']) {
       res.json(animal);
     } else {
-      log(`Database: ${animal}`)
+      console.log(`Database: ${animal}`)
     }
   } catch (e) {
     res.status(404).json({ error: e})
   }
 });
 
+//UPDATE
+animals.put('/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const animal = await updateAnimal(req.body, id);
+    if (animal['id']) {
+      res.json(animal)
+    } else {
+      const msg = `animal not added to database: ${JSON.stringify(req.body)}`;
+      throw new NewErrorMessage(msg);
+    }
+  } catch (e) {
+    return next (e);
+  }
+});
 
 //DELETE
 animals.delete('/:id', async (req, res) => {
