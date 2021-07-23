@@ -5,12 +5,7 @@ import { apiURL } from '../util/apiURL'
 import Animal from './Animal'
 // import Search from './Search'
 
-<<<<<<< HEAD:front-end/src/Components/ListItems.js
 export default function ListItems() {
-=======
-
-export default function ListAnimals() {
->>>>>>> dacef4e386f0dbfb6a7af27bf1dcf72850bfe375:front-end/src/Components/ListAnimals.js
 
     const [pets, setPets] = useState([])
     // const [amount, setAmount] = useState(10)  // Uncomment to use search bar (or maybe pagination?)
