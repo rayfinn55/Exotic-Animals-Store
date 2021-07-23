@@ -1,7 +1,7 @@
 const express = require('express');
 const animals = express.Router();
 const { getAllAnimals, getAnimal, createNewAnimal, updateAnimal, deleteAnimal } = require('../queries/animals');
-const { errorHandler, NewErrorMessage } = require('../queries/helper.js');
+const { errorHandler, NewErrorMessage } = require('../helper');
 log = console.log
 
 
