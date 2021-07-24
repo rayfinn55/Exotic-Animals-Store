@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function NavBar() {
 
     return (
-        <div className='NavBar container-fluid'>
+        <nav className='navbar'>
             <div className='row'>
                 <div className='col-2'>
                     <Link to='/'>Home</Link>
@@ -17,6 +17,6 @@ export default function NavBar() {
                     <Link to='/pets/new'>New</Link>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }

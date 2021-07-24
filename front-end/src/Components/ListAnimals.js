@@ -46,7 +46,7 @@ export default function ListItems() {
             <h2>List of all Items</h2>
             {/* <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
             {/* { submit ? */}
-                <ul>
+                <ul className='ml-5 list-unstyled'>
                     {pets[0] ? petList : null}
                 </ul> 
             {/* null } */}
