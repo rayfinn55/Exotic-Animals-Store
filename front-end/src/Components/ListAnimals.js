@@ -33,7 +33,7 @@ export default function ListItems() {
     // }
     
     const petList = pets.map((pet, i) => {
-        // if (i < amount) {  // uncomment to use searchbar
+        // if (i < amount) {  // uncomment to use amount of results bar
             return <Animal key={pet.id} pet={pet} />
         // }
         // else {
@@ -43,10 +43,10 @@ export default function ListItems() {
 
     return (
         <div>
-            <h2>List of all Items</h2>
+            <h2 className='display-4 mt-5 text-center'>Choose a best friend</h2>
             {/* <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
             {/* { submit ? */}
-                <ul className='ml-5 list-unstyled'>
+                <ul className='ml-5 mt-5 list-unstyled'>
                     {pets[0] ? petList : null}
                 </ul> 
             {/* null } */}
