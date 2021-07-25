@@ -1,55 +1,41 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { apiURL } from '../util/apiURL'
-
-import Animal from './Animal'
-// import Search from './Search'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { apiURL } from '../util/apiURL';
+import Pagination from './Pagination';
+import Animal from './Animal';
 
 export default function ListItems() {
+	const [pets, setPets] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [petsPerPage] = useState(6);
+	const API = apiURL();
 
-    const [pets, setPets] = useState([])
-    // const [amount, setAmount] = useState(10)  // Uncomment to use search bar (or maybe pagination?)
-    // const [submit, setSubmit] = useState(false)
-    const API = apiURL()
+
 
     useEffect(() => {
-        axios.get(`${API}/animals`)
-        .then(
-            (response) => {
-                setPets(response.data)
-            },
-            (error) => console.log(`Error: `, error)
-        ).catch((c) => console.warn(c))
+        const fetchPets = async () => {
+            setLoading(true);
+            const res = await axios.get(`${API}/animals`);
+            setPets(res.data);
+            setLoading(false);
+        }
+        fetchPets()
     }, [API])
 
-    // const handleChange = (e) => {
-    //     const {value} = e.target
-    //     setAmount(value)
-    // }
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     setSubmit(true)
-    //     e.target.value = 0
-    // }
-    
-    const petList = pets.map((pet, i) => {
-        // if (i < amount) {  // uncomment to use searchbar
-            return <Animal key={pet.id} pet={pet} />
-        // }
-        // else {
-        //     return null
-        // }
-    })
+    const indexOfLastPet = currentPage * petsPerPage;
+    const indexOfFirstPet = indexOfLastPet - petsPerPage;
+    const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet);
 
+    // Switch Pages
+    const handleClick = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
     return (
         <div>
-            <h2>List of all Items</h2>
-            {/* <Search amount={amount} handleChange={handleChange} handleSubmit={handleSubmit} /> */}
-            {/* { submit ? */}
-                <ul>
-                    {pets[0] ? petList : null}
-                </ul> 
-            {/* null } */}
+            <h1 className='text-primary mb-3'>Animals</h1>
+            <Animal pets={currentPets} loading={loading}/>
+            <Pagination petsPerPage={petsPerPage} totalPets={pets.length} handleClick={handleClick}/>
         </div>
     )
 }
