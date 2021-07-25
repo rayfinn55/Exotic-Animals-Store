@@ -9,7 +9,7 @@ export default function ListItems() {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [petsPerPage] = useState(6);
-	const API = apiURL();
+	  const API = apiURL();
 
 
 
@@ -23,9 +23,11 @@ export default function ListItems() {
         fetchPets()
     }, [API])
 
+
     const indexOfLastPet = currentPage * petsPerPage;
     const indexOfFirstPet = indexOfLastPet - petsPerPage;
     const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet);
+
 
     // Switch Pages
     const handleClick = (pageNumber) => {
@@ -35,7 +37,7 @@ export default function ListItems() {
         <div>
             <h1 className='text-primary mb-3'>Animals</h1>
             <Animal pets={currentPets} loading={loading}/>
-            <Pagination petsPerPage={petsPerPage} totalPets={pets.length} handleClick={handleClick}/>
+            <Pagination petsPerPage={petsPerPage} totalPets={pets.length} handleClick={handleClick} />
         </div>
     )
 }

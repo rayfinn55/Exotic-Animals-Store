@@ -58,7 +58,7 @@ export default function EditAnimalForm() {
                 <label htmlFor="price">Cost: </label>
                 <input onChange={handleChange} type="number" name="" id="price" value={animal.price} />
                 <label htmlFor="img">Image url: </label>
-                <input type="text" id="img" value={animal.img} />
+                <input onChange={handleChange} type="text" id="img" value={animal.img} />
 
                 <input type="submit" value="Update this BFF!" />
             </form>

@@ -5,6 +5,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import { Link } from 'react-router-dom';
 
 
+
 function Pets({ pets, loading }) {
 	if (loading) {
 		return <h2>Loading...</h2>;
