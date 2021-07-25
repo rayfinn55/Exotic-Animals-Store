@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
 import { Link, useParams, useHistory } from 'react-router-dom'
+import placeholder from '../Images/placeholder.png'
 
 
 export default function AnimalDetails() {
@@ -27,7 +28,7 @@ export default function AnimalDetails() {
     }
 
     const handleImgError = () => {
-        setAnimal({ ...animal, img: null })
+        setAnimal({ ...animal, img: placeholder })
     }
 
 
