@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
 export default function Animal({ pet }) {
 
-
+    
     return (
         <li className='mb-5 media'>
-            <img className='align-self-center mr-3' src={pet.img} alt={`A cool ${pet.animal_name}`} />
+            {pet.img ? <img className='align-self-center mr-3' src={pet.img} alt={`A cool ${pet.animal_name}`} /> : null}
 
             <div className='media-body'>
                 <h3>{pet.animal_name}</h3>
