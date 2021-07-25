@@ -31,6 +31,7 @@ export default function ListItems() {
     //     setSubmit(true)
     //     e.target.value = 0
     // }
+
     
     const petList = pets.map((pet, i) => {
         // if (i < amount) {  // uncomment to use amount of results bar

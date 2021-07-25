@@ -26,9 +26,11 @@ export default function AnimalDetails() {
         }
     }
 
+
     return (
         <div>
             <h2>{animal.animal_name}</h2>
+            {animal.img.src ? <img onError={setAnimal({...animal, src: null})} src={animal.img} alt={`${animal.animal_name}`} /> : null}
             <h3>Species Class: {animal.class}</h3>
             <p>Will this be your new best friend?</p> 
             <p>{animal.description}</p>
