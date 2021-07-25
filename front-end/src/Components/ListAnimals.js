@@ -4,14 +4,13 @@ import { apiURL } from '../util/apiURL';
 import Pagination from './Pagination';
 import Animal from './Animal';
 
+
 export default function ListItems() {
 	const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [petsPerPage] = useState(6);
-	  const API = apiURL();
-
-
+	const API = apiURL();
 
     useEffect(() => {
         const fetchPets = async () => {
@@ -23,11 +22,9 @@ export default function ListItems() {
         fetchPets()
     }, [API])
 
-
     const indexOfLastPet = currentPage * petsPerPage;
     const indexOfFirstPet = indexOfLastPet - petsPerPage;
     const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet);
-
 
     // Switch Pages
     const handleClick = (pageNumber) => {
