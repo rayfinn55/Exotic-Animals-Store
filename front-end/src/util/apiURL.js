@@ -4,9 +4,3 @@ export const apiURL = () => {
     : "https://agile-basin-65767.herokuapp.com";
 };
 
-
-
-// TEMPORARY APIURL
-// export const apiURL = () => {
-//   return "https://digimon-api.vercel.app/api/digimon"
-// }
