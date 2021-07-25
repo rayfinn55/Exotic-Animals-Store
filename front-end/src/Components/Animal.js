@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import CardGroup from 'react-bootstrap/CardGroup';
@@ -29,7 +29,11 @@ function Pets({ pets, loading }) {
 						<Card.Text style={{ textAlign: 'center'}}>
 							<strong>Cost:</strong> ${pet.price.toLocaleString()}
 						</Card.Text>
-						{pet.stock ? <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>In Stock</Card.Text> : <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>Out of Stock</Card.Text>}
+						{
+						  pet.stock ? 
+						  <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>In Stock</Card.Text> : 
+						  <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>Out of Stock</Card.Text>
+						}
 						<Link to={`pets/${pet.id}`} style={{ textAlign: 'center'}}>
 							<Button variant='warning'>Details</Button>
 						</Link>
