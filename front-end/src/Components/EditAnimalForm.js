@@ -43,6 +43,9 @@ export default function EditAnimalForm() {
         const { value, id } = e.target
         setAnimal({ ...animal, [id]: value })
     }
+    const handleBack = (e) => {
+        history.push(`/pets/${id}`)
+    }
 
 
     return (
@@ -79,8 +82,10 @@ export default function EditAnimalForm() {
                         <Form.Control value={animal.price} type='number' id='price' placeholder='$45,000' onChange={handleChange} />
                     </Form.Group>
                 </Row>
-                    <Button className='mx-2'>Back</Button>
-                    <Button className='mx-2' variant='success' type='submit'>Submit</Button>
+                <div className='text-center'>
+                    <Button className='mx-4' variant='secondary' onClick={handleBack}>Back</Button>
+                    <Button className='mx-1' variant='success' type='submit'>Submit</Button>
+                </div>
             </Form>
         </div>
     )

@@ -75,7 +75,10 @@ export default function NewPetForm() {
                         <Form.Control type='number' id='price' placeholder='$45,000' onChange={handleChange} />
                     </Form.Group>
                 </Row>
-                <Button className='mt-5' variant='success' type='submit'>Submit</Button>
+                <div className='mt-5'>
+                    <Button className='mx-4' variant='secondary' onClick={() => {history.push('/pets')}}>Back</Button>
+                    <Button className='mx-1' variant='success' type='submit'>Submit</Button>
+                </div>
             </Form>
         </div>
     )
