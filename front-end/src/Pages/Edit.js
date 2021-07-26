@@ -1,6 +1,5 @@
-import React from 'react'
-import EditAnimalForm from '../Components/EditAnimalForm'
-
+import React from 'react';
+import EditAnimalForm from '../Components/EditAnimalForm';
 
 export default function Edit() {
 

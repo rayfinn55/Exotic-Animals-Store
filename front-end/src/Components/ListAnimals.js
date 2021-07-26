@@ -7,9 +7,9 @@ import Animal from './Animal';
 
 export default function ListItems() {
 	const [pets, setPets] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [petsPerPage] = useState(6);
+	const [loading, setLoading] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [petsPerPage] = useState(6);
 	const API = apiURL();
 
     useEffect(() => {

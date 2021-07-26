@@ -1,6 +1,5 @@
-import React from 'react'
-import Giraffe from '../Images/LapGiraffe.jpeg'
-
+import React from 'react';
+import Giraffe from '../Images/LapGiraffe.jpeg';
 
 export default function Home() {
 

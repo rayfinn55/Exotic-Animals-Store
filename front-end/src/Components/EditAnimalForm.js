@@ -6,44 +6,49 @@ import { Form, Row, Col, Button } from 'react-bootstrap'
 
 
 export default function EditAnimalForm() {
+	const [animal, setAnimal] = useState({
+		animal_name: '',
+		class: '',
+		description: '',
+		location: '',
+		price: '',
+		stock: true,
+		img: '',
+	});
+	const API = apiURL();
+	let { id } = useParams();
+	const history = useHistory();
 
-    const [animal, setAnimal] = useState({
-        animal_name: "",
-        class: "",
-        description: "",
-        location: "",
-        price: "",
-        stock: true,
-        img: ""
-    })
-    const API = apiURL()
-    let { id } = useParams()
-    const history = useHistory()
-
-    useEffect(() => {
-        axios.get(`${API}/animals/${id}`)
-        .then(
-            (response) => setAnimal(response.data),
-            (error) => console.log(error)
-        ).catch((c) => console.warn(`Catch: `, c))
-    }, [API, id])
-    const updateAnimal = (updatedAnimal) => {
-        axios.put(`${API}/animals/${id}`, updatedAnimal)
-        .then(
-            () => {history.push(`/pets/${id}`)},
-            (error) => {console.log(error)}
-        )
-        .catch((c) => console.warn(`Catch: `, c))
-    }
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        updateAnimal(animal, id)
-    }
-    const handleChange = (e) => {
-        const { value, id } = e.target
-        setAnimal({ ...animal, [id]: value })
-    }
-
+	useEffect(() => {
+		axios
+			.get(`${API}/animals/${id}`)
+			.then(
+				(response) => setAnimal(response.data),
+				(error) => console.log(error)
+			)
+			.catch((c) => console.warn(`Catch: `, c));
+	}, [API, id]);
+	const updateAnimal = (updatedAnimal) => {
+		axios
+			.put(`${API}/animals/${id}`, updatedAnimal)
+			.then(
+				() => {
+					history.push(`/pets/${id}`);
+				},
+				(error) => {
+					console.log(error);
+				}
+			)
+			.catch((c) => console.warn(`Catch: `, c));
+	};
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		updateAnimal(animal, id);
+	};
+	const handleChange = (e) => {
+		const { value, id } = e.target;
+		setAnimal({ ...animal, [id]: value });
+	};
 
     return (
         <div>
