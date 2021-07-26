@@ -1,6 +1,5 @@
-import React from 'react'
-import ListAnimals from '../Components/ListAnimals'
-
+import React from 'react';
+import ListAnimals from '../Components/ListAnimals';
 
 export default function Index() {
 

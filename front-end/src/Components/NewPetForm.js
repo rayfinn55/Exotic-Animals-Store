@@ -6,40 +6,39 @@ import { Form, Row, Col, Button } from 'react-bootstrap'
 
 
 export default function NewPetForm() {
+	const [animal, setAnimal] = useState({
+		animal_name: '',
+		class: '',
+		description: '',
+		location: '',
+		price: '',
+		stock: true,
+		img: '',
+	});
+	const API = apiURL();
+	const history = useHistory();
 
-    const [animal, setAnimal] = useState({
-        animal_name: "",
-        class: "",
-        description: "",
-        location: "",
-        price: "",
-        stock: true,
-        img: ""
-    })
-    const API = apiURL()
-    const history = useHistory()
-    
-    const addAnimal = (newAnimal) => {
-        axios.post(`${API}/animals`, newAnimal)
-        .then(
-            () => {
-                history.push('/pets')
-            },
-            (error) => {
-                console.log(error)
-            }
-        )
-        .catch((c) => console.warn("catch", c))
-    }
-    const handleChange = (e) => {
-        const {value, id} = e.target
-        setAnimal({...animal, [id]: value})
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addAnimal(animal)
-    }
-
+	const addAnimal = (newAnimal) => {
+		axios
+			.post(`${API}/animals`, newAnimal)
+			.then(
+				() => {
+					history.push('/pets');
+				},
+				(error) => {
+					console.log(error);
+				}
+			)
+			.catch((c) => console.warn('catch', c));
+	};
+	const handleChange = (e) => {
+		const { value, id } = e.target;
+		setAnimal({ ...animal, [id]: value });
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		addAnimal(animal);
+	};
 
     return (
         <div>

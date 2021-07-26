@@ -1,6 +1,5 @@
-import React from 'react'
-import NewPetForm from '../Components/NewPetForm'
-
+import React from 'react';
+import NewPetForm from '../Components/NewPetForm';
 
 export default function New() {
 
