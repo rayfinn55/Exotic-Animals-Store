@@ -29,9 +29,9 @@ function Pets({ pets, loading }) {
 							<strong>Cost:</strong> ${pet.price.toLocaleString()}
 						</Card.Text>
 						{
-						  pet.stock ? 
-						  <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>In Stock</Card.Text> : 
-						  <Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>Out of Stock</Card.Text>
+						pet.stock ? 
+						<Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>In Stock</Card.Text> : 
+						<Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>Out of Stock</Card.Text>
 						}
 						<Link to={`pets/${pet.id}`} style={{ textAlign: 'center'}}>
 							<Button variant='warning'>Details</Button>

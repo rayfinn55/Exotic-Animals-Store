@@ -3,6 +3,9 @@ import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
 import { Link, useParams, useHistory } from 'react-router-dom'
 import placeholder from '../Images/placeholder.png'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 
 
 export default function AnimalDetails() {
@@ -29,17 +32,51 @@ export default function AnimalDetails() {
 
 
     return (
-        <div>
-            <h2>{animal.animal_name}</h2>
-            {animal.img ? <img onError={handleImgError} src={animal.img} alt={`${animal.animal_name}`} /> : null}
-            <h3>Species Class: {animal.class}</h3>
-            <p>Will this be your new best friend?</p> 
-            <p>{animal.description}</p>
-            <h4>Species located in {animal.location}</h4>
-            <h4>Cost: {animal.price}</h4>
-            {animal.stock ? <h4>In stock</h4> : <h4>Out of stock</h4>}
-            <Link to={`/pets/edit/${id}`}><button>Edit</button></Link>
-            <button onClick={handleDelete}>Delete</button>
-        </div>
-    )
+			<Container>
+				<Card style={{ width: '65rem' }}>
+					<Card.Body>
+						<Card.Title style={{ textAlign: 'center' }}>{animal.animal_name}</Card.Title>
+						<Card.Subtitle className='mb-2 text-muted' style={{ textAlign: 'center' }}>
+							{animal.class}
+						</Card.Subtitle>
+						{animal.img ? (
+							<img
+								onError={handleImgError}
+								src={animal.img}
+								alt={`${animal.animal_name}`}
+								style={{ height: '100%', margin: 'auto', display: 'block' }}
+							/>
+						) : null}
+						<Card.Text style={{ textAlign: 'center' }}>
+							<strong>Description:</strong>
+							<br></br>
+							{animal.description}
+						</Card.Text>
+						<Card.Text style={{ textAlign: 'center' }}>
+							<strong>Location:</strong>
+							<br></br> {animal.location}
+						</Card.Text>
+						<Card.Text style={{ textAlign: 'center' }}>
+							<strong>Cost:</strong>
+							<br></br> ${animal.price}
+						</Card.Text>
+            <Container style={{ textAlign: 'center' }}>
+						<Link to={`/pets`}>
+							<Button variant='secondary'>Back</Button>
+						</Link>
+            {' '}
+						<Link to={`/pets/edit/${id}`}>
+							<Button variant='primary'>Edit</Button>
+						</Link>
+            {' '}
+						<Link>
+							<Button variant='danger' onClick={handleDelete}>
+								Delete
+							</Button>
+						</Link>
+            </Container>
+					</Card.Body>
+				</Card>
+			</Container>
+		);
 }
