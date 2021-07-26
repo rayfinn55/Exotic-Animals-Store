@@ -32,7 +32,6 @@ export default function ListItems() {
     }
     return (
         <div>
-            <h1 className='text-primary mb-3'>Animals</h1>
             <Animal pets={currentPets} loading={loading}/>
             <Pagination petsPerPage={petsPerPage} totalPets={pets.length} handleClick={handleClick} />
         </div>

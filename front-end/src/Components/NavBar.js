@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Navbar, Container, Nav } from 'react-bootstrap'
-import Home from '../Pages/Home'
 
 
 export default function NavBar() {
 
     return (
-        <Navbar bg='warning' expand='md'>
+        <Navbar className='h-10' bg='warning' expand='md'>
             <Container>
             <Navbar.Brand as={Link} to='/'>My New Best Friend</Navbar.Brand>
                     <Nav>

@@ -43,7 +43,7 @@ export default function NewPetForm() {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form className='mx-5' onSubmit={handleSubmit}>
                 <Row>
                     <Form.Group as={Col}>
                         <Form.Label>Species</Form.Label>
