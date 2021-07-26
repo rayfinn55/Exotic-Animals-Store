@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
-import { Link, useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import placeholder from '../Images/placeholder.png'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -32,7 +32,7 @@ export default function AnimalDetails() {
 
 
     return (
-			<Container>
+			<Container className='mb-5'>
 				<Card style={{ width: '65rem' }}>
 					<Card.Body>
 						<Card.Title style={{ textAlign: 'center' }}>{animal.animal_name}</Card.Title>
@@ -61,19 +61,13 @@ export default function AnimalDetails() {
 							<br></br> ${animal.price}
 						</Card.Text>
             <Container style={{ textAlign: 'center' }}>
-						<Link to={`/pets`}>
-							<Button variant='secondary'>Back</Button>
-						</Link>
+						<Button variant='secondary'>Back</Button>
             {' '}
-						<Link to={`/pets/edit/${id}`}>
-							<Button variant='primary'>Edit</Button>
-						</Link>
+						<Button onClick={() => history.push(`/pets/edit/${id}`)} variant='primary'>Edit</Button>
             {' '}
-						<Link>
-							<Button variant='danger' onClick={handleDelete}>
+						<Button variant='danger' onClick={handleDelete}>
 								Delete
-							</Button>
-						</Link>
+						</Button>
             </Container>
 					</Card.Body>
 				</Card>

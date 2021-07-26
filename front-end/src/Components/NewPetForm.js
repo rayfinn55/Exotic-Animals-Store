@@ -42,7 +42,7 @@ export default function NewPetForm() {
 
     return (
         <div>
-            <Form className='mx-5' onSubmit={handleSubmit}>
+            <Form className='mx-5 text-center' onSubmit={handleSubmit}>
                 <Row>
                     <Form.Group as={Col}>
                         <Form.Label>Species</Form.Label>
@@ -74,7 +74,10 @@ export default function NewPetForm() {
                         <Form.Control type='number' id='price' placeholder='$45,000' onChange={handleChange} />
                     </Form.Group>
                 </Row>
-                <Button variant='success' type='submit'>Submit</Button>
+                <div className='mt-5'>
+                    <Button className='mx-4' variant='secondary' onClick={() => {history.push('/pets')}}>Back</Button>
+                    <Button className='mx-1' variant='success' type='submit'>Submit</Button>
+                </div>
             </Form>
         </div>
     )
