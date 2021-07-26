@@ -48,31 +48,21 @@ export default function EditAnimalForm() {
 		setAnimal({ ...animal, [id]: value });
 	};
 
-	return (
-		<div>
-			<form action='' onSubmit={handleSubmit}>
-				<label htmlFor='animal_name'>Animal Species: </label>
-				<input
-					onChange={handleChange}
-					type='text'
-					id='animal_name'
-					value={animal.animal_name}
-				/>
-				<label htmlFor='class'>Species Class: </label>
-				<input onChange={handleChange} type='text' id='class' value={animal.class} />
-				<label htmlFor='description'>Description: </label>
-				<textarea
-					onChange={handleChange}
-					type='text'
-					id='description'
-					value={animal.description}
-				/>
-				<label htmlFor='location'>Location: </label>
-				<input onChange={handleChange} type='text' id='location' value={animal.location} />
-				<label htmlFor='price'>Cost: </label>
-				<input onChange={handleChange} type='number' name='' id='price' value={animal.price} />
-				<label htmlFor='img'>Image url: </label>
-				<input type='text' id='img' value={animal.img} />
+    return (
+        <div>
+            <form action="" onSubmit={handleSubmit} >
+                <label htmlFor="animal_name">Animal Species: </label>
+                <input onChange={handleChange} type="text" id="animal_name" value={animal.animal_name} />
+                <label htmlFor="class">Species Class: </label>
+                <input onChange={handleChange} type="text" id="class" value={animal.class} />
+                <label htmlFor="description">Description: </label>
+                <textarea onChange={handleChange} type="text" id="description" value={animal.description} />
+                <label htmlFor="location">Location: </label>
+                <input onChange={handleChange} type="text" id="location" value={animal.location} />
+                <label htmlFor="price">Cost: </label>
+                <input onChange={handleChange} type="number" name="" id="price" value={animal.price} />
+                <label htmlFor="img">Image url: </label>
+                <input onChange={handleChange} type="text" id="img" value={animal.img} />
 
 				<input type='submit' value='Update this BFF!' />
 			</form>
