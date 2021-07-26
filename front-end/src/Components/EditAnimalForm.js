@@ -47,7 +47,7 @@ export default function EditAnimalForm() {
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form className='pt-4' onSubmit={handleSubmit}>
                 <Row>
                     <Form.Group as={Col}>
                         <Form.Label>Species</Form.Label>

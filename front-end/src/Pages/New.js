@@ -6,7 +6,7 @@ export default function New() {
 
     return (
         <div>
-            <h1>Add a new Pet to the list!</h1>
+            <h1 className='text-center header'>Add a new Pet to the list!</h1>
             <NewPetForm />
         </div>
     )
