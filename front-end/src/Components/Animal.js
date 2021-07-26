@@ -22,7 +22,7 @@ function Pets({ pets, loading }) {
 					<Card style={{ width: '19rem' }}>
 						<Card.Title style={{ textAlign: 'center'}}>{pet.animal_name}</Card.Title>
 						<p style={{ textAlign: 'center'}}>{pet.class}</p>
-						<Card.Img variant='top' src={pet.img} onError={handleBrokenImg} alt={`A cool ${pet.animal_name}`} />
+						<Card.Img variant='top' style={{height: '100%'}} src={pet.img} onError={handleBrokenImg} alt={`A cool ${pet.animal_name}`} />
 						<Card.Text style={{ textAlign: 'center'}}>
 							<strong>Location:</strong> {pet.location}
 						</Card.Text>
