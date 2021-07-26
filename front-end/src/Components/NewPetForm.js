@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 
 
 export default function NewPetForm() {
@@ -42,25 +43,40 @@ export default function NewPetForm() {
 
     return (
         <div>
-            <h1>New Pet Component</h1>
-            <form onSubmit={handleSubmit} action="">
-                <label htmlFor="animal_name">Species: </label>
-                <input onChange={handleChange} type="text" id="animal_name" />
-                <label htmlFor="class">Class of Species: </label>
-                <input onChange={handleChange} type="text" id="class" />
-                <label htmlFor="description">Description: </label>
-                <textarea onChange={handleChange} type="text" id="description" placeholder="Description of new pet"/>
-                <label htmlFor="img">Image url:</label>
-                <input onChange={handleChange} type="text" id="img" />
-                <label htmlFor="location">Location: </label>
-                <input onChange={handleChange} type="text" id="location" />
-                <label htmlFor="price">Cost: </label>
-                <input onChange={handleChange} type="number" id="price" />
-                <label htmlFor="img">URL for Image:</label>
-                <input onChange={handleChange} type="text" id="img" />
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Species</Form.Label>
+                        <Form.Control type='text' id='animal_name' placeholder='Giraffe' onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Class of Species</Form.Label>
+                        <Form.Control type='text' id='class' placeholder='Mammal' onChange={handleChange} />
+                    </Form.Group>
+                </Row>
 
-                <input type="submit" value="Add a new BFF to the list!" />
-            </form>
+                <Form.Group>
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control type='textarea' id='description' placeholder='Gracious long-necked grazer of the African plains' onChange={handleChange} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Image URL</Form.Label>
+                    <Form.Control type='text' id='class' placeholder='www.picsum.photos/300/200' onChange={handleChange} />
+                </Form.Group>
+
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control type='text' id='location' placeholder='Africa' onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Cost</Form.Label>
+                        <Form.Control type='number' id='price' placeholder='$45,000' onChange={handleChange} />
+                    </Form.Group>
+                </Row>
+                <Button variant='success' type='submit'>Submit</Button>
+            </Form>
         </div>
     )
 }
