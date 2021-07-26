@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { apiURL } from '../util/apiURL.js'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 
 
 export default function EditAnimalForm() {
@@ -46,22 +47,40 @@ export default function EditAnimalForm() {
 
     return (
         <div>
-            <form action="" onSubmit={handleSubmit} >
-                <label htmlFor="animal_name">Animal Species: </label>
-                <input onChange={handleChange} type="text" id="animal_name" value={animal.animal_name} />
-                <label htmlFor="class">Species Class: </label>
-                <input onChange={handleChange} type="text" id="class" value={animal.class} />
-                <label htmlFor="description">Description: </label>
-                <textarea onChange={handleChange} type="text" id="description" value={animal.description} />
-                <label htmlFor="location">Location: </label>
-                <input onChange={handleChange} type="text" id="location" value={animal.location} />
-                <label htmlFor="price">Cost: </label>
-                <input onChange={handleChange} type="number" name="" id="price" value={animal.price} />
-                <label htmlFor="img">Image url: </label>
-                <input onChange={handleChange} type="text" id="img" value={animal.img} />
+            <Form onSubmit={handleSubmit}>
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Species</Form.Label>
+                        <Form.Control value={animal.animal_name} type='text' id='animal_name' placeholder='Giraffe' onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Class of Species</Form.Label>
+                        <Form.Control value={animal.class} type='text' id='class' placeholder='Mammal' onChange={handleChange} />
+                    </Form.Group>
+                </Row>
 
-                <input type="submit" value="Update this BFF!" />
-            </form>
+                <Form.Group>
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control value={animal.description} type='textarea' id='description' placeholder='Gracious long-necked grazer of the African plains' onChange={handleChange} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Image URL</Form.Label>
+                    <Form.Control value={animal.img} type='text' id='class' placeholder='www.picsum.photos/300/200' onChange={handleChange} />
+                </Form.Group>
+
+                <Row>
+                    <Form.Group as={Col}>
+                        <Form.Label>Location</Form.Label>
+                        <Form.Control value={animal.location} type='text' id='location' placeholder='Africa' onChange={handleChange} />
+                    </Form.Group>
+                    <Form.Group as={Col}>
+                        <Form.Label>Cost</Form.Label>
+                        <Form.Control value={animal.price} type='number' id='price' placeholder='$45,000' onChange={handleChange} />
+                    </Form.Group>
+                </Row>
+                <Button variant='success' type='submit'>Submit</Button>
+            </Form>
         </div>
     )
 }
