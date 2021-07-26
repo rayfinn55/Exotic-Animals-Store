@@ -1,12 +1,6 @@
 .App {
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-}
-
-.NavBar {
-    background-color: rgb(190, 140, 190);
-}
-.NavBar a {
-    text-decoration: none;
+    color: rgb(109, 0, 109);
 }
 
 img {

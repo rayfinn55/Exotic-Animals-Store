@@ -6,7 +6,7 @@ export default function Index() {
 
     return (
         <div>
-            <h1 className='text-center mb-3 header'>Animals</h1>
+            <h1 style={{marginBottom: '90px', marginTop: '90px'}} className='text-center header'>Animals</h1>
             <ListAnimals />
         </div>
     )

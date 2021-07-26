@@ -47,7 +47,7 @@ export default function EditAnimalForm() {
 
     return (
         <div>
-            <Form className='pt-4' onSubmit={handleSubmit}>
+            <Form className='text-center pt-4 mx-5' onSubmit={handleSubmit}>
                 <Row>
                     <Form.Group as={Col}>
                         <Form.Label>Species</Form.Label>
@@ -69,7 +69,7 @@ export default function EditAnimalForm() {
                     <Form.Control value={animal.img} type='text' id='class' placeholder='www.picsum.photos/300/200' onChange={handleChange} />
                 </Form.Group>
 
-                <Row>
+                <Row className='mb-5'>
                     <Form.Group as={Col}>
                         <Form.Label>Location</Form.Label>
                         <Form.Control value={animal.location} type='text' id='location' placeholder='Africa' onChange={handleChange} />
@@ -79,7 +79,8 @@ export default function EditAnimalForm() {
                         <Form.Control value={animal.price} type='number' id='price' placeholder='$45,000' onChange={handleChange} />
                     </Form.Group>
                 </Row>
-                <Button variant='success' type='submit'>Submit</Button>
+                    <Button className='mx-2'>Back</Button>
+                    <Button className='mx-2' variant='success' type='submit'>Submit</Button>
             </Form>
         </div>
     )
