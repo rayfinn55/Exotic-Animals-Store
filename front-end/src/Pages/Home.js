@@ -24,7 +24,7 @@ export default function Home() {
                         <h3 className='text-center'>This can be your new BFF on YOUR couch!</h3>
                     </Col>
                     <Col>
-                        <Image className='float-right' src={NewGiraffe} alt='Cute pocket giraffe' rounded fluid />
+                        <Image style={{display: 'block', width: '70%', marginLeft: 'auto', marginRight: 'auto'}} src={NewGiraffe} alt='Cute pocket giraffe' rounded fluid />
                     </Col>
                 </Row>
             </Container>
