@@ -32,7 +32,7 @@ export default function AnimalDetails() {
 
 
     return (
-			<Container className='mb-5'>
+			<Container>
 				<Card style={{ width: '65rem' }}>
 					<Card.Body>
 						<Card.Title style={{ textAlign: 'center' }}>{animal.animal_name}</Card.Title>
@@ -60,15 +60,17 @@ export default function AnimalDetails() {
 							<strong>Cost:</strong>
 							<br></br> ${animal.price}
 						</Card.Text>
-            <Container style={{ textAlign: 'center' }}>
-						<Button variant='secondary'>Back</Button>
-            {' '}
-						<Button onClick={() => history.push(`/pets/edit/${id}`)} variant='primary'>Edit</Button>
-            {' '}
-						<Button variant='danger' onClick={handleDelete}>
+						<Container style={{ textAlign: 'center' }}>
+							<Button onClick={() => history.push(`/pets`)} variant='secondary'>
+								Back
+							</Button>{' '}
+							<Button onClick={() => history.push(`/pets/edit/${id}`)} variant='primary'>
+								Edit
+							</Button>{' '}
+							<Button variant='danger' onClick={handleDelete}>
 								Delete
-						</Button>
-            </Container>
+							</Button>
+						</Container>
 					</Card.Body>
 				</Card>
 			</Container>
