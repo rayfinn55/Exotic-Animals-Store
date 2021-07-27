@@ -33,7 +33,7 @@ function Pets({ pets, loading }) {
 						<Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>In Stock</Card.Text> : 
 						<Card.Text style={{ textAlign: 'center'}}><strong>Availability:</strong>Out of Stock</Card.Text>
 						}
-						<Link to={`pets/${pet.id}`} style={{ textAlign: 'center'}}>
+						<Link to={`pets/${pet.id}`} style={{ textAlign: 'center', marginBottom: '20px'}}>
 							<Button variant='warning'>Details</Button>
 						</Link>
 					</Card>
