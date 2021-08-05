@@ -64,7 +64,7 @@ export default function AnimalDetails() {
 							<Button onClick={() => history.push(`/pets`)} variant='secondary'>
 								Back
 							</Button>{' '}
-							<Button onClick={() => history.push(`/pets/edit/${id}`)} variant='primary'>
+							<Button onClick={() => history.push(`/pets/${id}/edit`)} variant='primary'>
 								Edit
 							</Button>{' '}
 							<Button variant='danger' onClick={handleDelete}>

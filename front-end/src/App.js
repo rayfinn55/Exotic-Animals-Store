@@ -17,7 +17,7 @@ export default function App() {
 			<Switch>
 				<Route exact path='/' component={Home} />
 				<Route exact path='/pets' component={Index} />
-				<Route path='/pets/edit/:id' component={Edit} />
+				<Route path='/pets/:id/edit' component={Edit} />
 				<Route exact path='/pets/new' component={New} />
 				<Route path='/pets/:id' component={Show} />
 				<Route exact path='*' component={FourOFour} />

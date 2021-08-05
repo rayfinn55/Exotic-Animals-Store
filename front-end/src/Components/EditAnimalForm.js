@@ -12,7 +12,7 @@ export default function EditAnimalForm() {
 		description: '',
 		location: '',
 		price: '',
-		stock: true,
+		stock: false,
 		img: '',
 	});
 	const API = apiURL();
@@ -49,6 +49,9 @@ export default function EditAnimalForm() {
 		const { value, id } = e.target;
 		setAnimal({ ...animal, [id]: value });
 	};
+	const handleCheckbox = (e) => {
+		setAnimal({ ...animal, stock: !animal.stock })
+	}
 	const handleBack = () => {
 		history.push(`/pets/${id}`)
 	}
@@ -87,6 +90,9 @@ export default function EditAnimalForm() {
                         <Form.Control value={animal.price} type='number' id='price' placeholder='$45,000' onChange={handleChange} />
                     </Form.Group>
                 </Row>
+				<Form.Group>
+					<Form.Check label='Out of Stock' type='checkbox' id='stock' onChange={handleCheckbox} />
+				</Form.Group>
                 <div className='text-center mt-5'>
                     <Button className='mx-4' variant='secondary' onClick={handleBack}>Back</Button>
                     <Button className='mx-1' variant='success' type='submit'>Submit</Button>
