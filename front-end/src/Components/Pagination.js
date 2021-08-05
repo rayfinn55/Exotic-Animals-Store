@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 
 function Pagination({ petsPerPage, totalPets, handleClick }) {
   const pageNumbers = [];
@@ -7,18 +9,20 @@ function Pagination({ petsPerPage, totalPets, handleClick }) {
     pageNumbers.push(i)
   }
   return (
-    <nav>
-      <ul className="pagination">
-    {pageNumbers.map(number => (
-      <li key={number} className='page-item'>
-        <button onClick={() => handleClick(number)} className='page-link'>
-          {number}
-        </button>
-      </li>
-    ))}
-      </ul>
-    </nav>
-  )
+		<Container className='mr-1 pl-5' style={{display: 'flex' }}>
+			<nav>
+				<ul className='pagination'>
+					{pageNumbers.map((number) => (
+						<li key={number} className='page-item'>
+							<Button onClick={() => handleClick(number)} className='page-link'>
+								{number}
+							</Button>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</Container>
+  );
 }
 
 export default Pagination
